@@ -1,10 +1,10 @@
 public class StackQueue <N> {
 
-    public static class Node<Item>{
-        private Item data;
-        private Node<Item> next;
+    public static class Node<N>{
+        private N data;
+        private Node<N> next;
 
-        public Node(Item data) {
+        public Node(N data) {
             this.data = data;
         }
 
@@ -13,19 +13,19 @@ public class StackQueue <N> {
     private StackNode inStack = new StackNode();
     private StackNode outStack = new StackNode();
 
-    private Node<Item> head;
-    private Node<Item> tail;
+    private Node<N> head;
+    private Node<N> tail;
 
     public boolean isEmpty(){
         return head == null;
     }
 
-    public Item peek(){
+    public N peek(){
         return head.data;
     }
 
-    public void enqueue(Item data){
-        Node<Item> node = new Node<Item>(data);
+    public void enqueue(N data){
+        Node<N> node = new Node<N>(data);
         if (tail != null){
             tail.next = node;
         }
@@ -36,8 +36,8 @@ public class StackQueue <N> {
         }
     }
 
-    public Item dequeue(){
-        Item data = head.data;
+    public N dequeue(){
+        N data = head.data;
         head = head.next;
 
         if(head == null){
@@ -45,8 +45,4 @@ public class StackQueue <N> {
         }
         return data;
     }
-}
-
-    }
-
 }
