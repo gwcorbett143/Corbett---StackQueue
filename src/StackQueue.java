@@ -1,6 +1,6 @@
 public class StackQueue <N> {
 
-    public static class Node<N>{
+    public static class Node<N> {
         private N data;
         private Node<N> next;
 
@@ -16,33 +16,38 @@ public class StackQueue <N> {
     private Node<N> head;
     private Node<N> tail;
 
-    public boolean isEmpty(){
+    public boolean isEmpty() {
         return head == null;
     }
 
-    public N peek(){
+    public N peek() {
         return head.data;
     }
 
-    public void enqueue(N data){
-        Node<N> node = new Node<N>(data);
-        if (tail != null){
-            tail.next = node;
+    public void enQueue(N data) {
+        // Move all elements from inStack to outStack
+        while (!inStack.isEmpty()) {
+            outStack.push(inStack.pop());
+            inStack.pop();
         }
-        tail = node;
-
-        if (head == null){
-            head = node;
+        inStack.push(data);
+        // Push everything back to inStack
+        while (!inStack.isEmpty()) {
+            inStack.push(outStack.pop());
+            outStack.pop();
         }
     }
 
-    public N dequeue(){
-        N data = head.data;
-        head = head.next;
+    public N deQueue(N data) {
 
-        if(head == null){
-            tail = null;
+        if (inStack.isEmpty()) {
+            System.out.println("Q is Empty");
+            System.exit(0);
         }
+
+        // Return top of s1
+        N data = inStack.peek();
+        inStack.pop();
         return data;
     }
 }
