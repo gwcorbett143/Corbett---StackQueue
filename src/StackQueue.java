@@ -41,12 +41,12 @@ public class StackQueue <N> {
     public N deQueue(N data) {
 
         if (inStack.isEmpty()) {
-            System.out.println("Q is Empty");
+            System.out.println("Queue is Empty");
             System.exit(0);
         }
 
         // Return top of s1
-        N data = inStack.peek();
+        data = (N) inStack.peek();
         inStack.pop();
         return data;
     }
