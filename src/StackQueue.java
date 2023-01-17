@@ -1,53 +1,50 @@
-public class StackQueue <N> {
+import java.util.*;
+public class StackQueue <N>{
 
-    public static class Node<N> {
-        private N data;
-        private Node<N> next;
-
+    public class Node<N>{
+        public N data;
         public Node(N data) {
             this.data = data;
         }
-
     }
 
-    private StackNode inStack = new StackNode();
-    private StackNode outStack = new StackNode();
+    public StackNode s1 = new StackNode();
+    public StackNode s2 = new StackNode();
 
-    private Node<N> head;
-    private Node<N> tail;
-
-    public boolean isEmpty() {
-        return head == null;
-    }
-
-    public N peek() {
-        return head.data;
+    public N peek(){
+        return (N) s1.peek();
     }
 
     public void enQueue(N data) {
-        // Move all elements from inStack to outStack
-        while (!inStack.isEmpty()) {
-            outStack.push(inStack.pop());
-            inStack.pop();
+        // Move all elements from s1 to s2
+        while (!s1.isEmpty()) {
+            s2.push(s1.pop());
         }
-        inStack.push(data);
-        // Push everything back to inStack
-        while (!inStack.isEmpty()) {
-            inStack.push(outStack.pop());
-            outStack.pop();
+
+        // Push item into s1
+        s1.push(data);
+
+        // Push everything back to s1
+        while (!s2.isEmpty()) {
+            s1.push(s2.pop());
         }
     }
 
-    public N deQueue(N data) {
-
-        if (inStack.isEmpty()) {
-            System.out.println("Queue is Empty");
+    // Dequeue an item from the queue
+    public N deQueue() {
+        // if first stack is empty
+        if (s1.isEmpty()) {
+            System.out.println("Q is Empty");
             System.exit(0);
         }
 
         // Return top of s1
-        data = (N) inStack.peek();
-        inStack.pop();
+        N data = (N) s1.peek();
+        s1.pop();
         return data;
+    }
+
+    public boolean isEmpty(){
+        return s1.peek() == null;
     }
 }

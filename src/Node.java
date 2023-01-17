@@ -1,33 +1,33 @@
 import java.util.Objects;
 
-public class Node<T> {
+public class Node<N> {
     private Node parent;
     private Node child;
-    private T data;
+    private N data;
 
     public Node() {
     }
 
 
-    public Node(T data) {
+    public Node(N data) {
         this.data = data;
     }
 
-    public Node(Node parent, Node child, T data) {
+    public Node(Node parent, Node child, N data) {
         this.parent = parent;
         this.child = child;
         this.data = data;
     }
 
-    public T getData() {
+    public N getData() {
         return data;
     }
 
-    public Node<T> getParent() {
+    public Node<N> getParent() {
         return this.parent;
     }
 
-    public Node<T> getChild() {
+    public Node<N> getChild() {
         return this.child;
     }
 
@@ -45,7 +45,7 @@ public class Node<T> {
         }
     }
 
-    public void setData(T data) {
+    public void setData(N data) {
         this.data = data;
     }
 

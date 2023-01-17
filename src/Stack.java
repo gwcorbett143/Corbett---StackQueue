@@ -1,51 +1,27 @@
 import java.util.EmptyStackException;
 
-public class StackNode <N>{
+//an object representing data structure Stack
+public class Stack<N>{
+    private StackNode<N> top = null; //reference to the "top" Node of the Stack
+    private int size = 0; //number of elements in Stack
 
-    private N data; //instance data adapted from OG node class
-    private StackNode nxt; //nxt is the most important variable because it stacks the data
+    //empty constructor
+    public Stack(){}
 
-    public StackNode(N arg, StackNode n){ //StackNode constructor
-        data = arg; //the type of data gets set
-        nxt = n; //the next variable is set here
-    }
-
-    public void setData(N arg){ //sets a variable in stack to the new argument
-        data = arg;
-    }
-
-    public N getData(){//returns the data from a varible
-        return data;
-    }
-
-    public StackNode getNxt() { //returns the next value in the stack
-        return nxt;
-    }
-
-    public void setNxt(StackNode n) { //sets the variable thata on the top of teh stack
-        nxt = n;
-    }
-
-
-    StackNode top; //Top is the variable on the top of the stack
-    int size; //how many items are in the stack
-
-    public StackNode(){ //empty constructor with 0 arguments
-        top = null;
-        size = 0;
-    }
-
-    public boolean isEmpty(){ //returns if there are no values
-        return top == null;
-    }
-
-    public int size(){ //returns the # of items in the stack
+    //returns instance data size
+    public int size(){
         return size;
     }
 
+    //returns true if stack is empty
+    public boolean isEmpty(){
+        return (top == null);
+    }
+
+    //adds a new element to the top of stack
     public void push(N arg){ //adds a new item to the stack
         StackNode n = new StackNode(arg, top);//this allows values to be assigned accurately
-        top = n; //sets the top value to the argument provided
+        top = n; //sets teh top value to the argument provided
         size++; //adds 1 more to the stack
     }
 
