@@ -8,8 +8,8 @@ public class StackQueue <N>{
         }
     }
 
-    public StackNode s1 = new StackNode();
-    public StackNode s2 = new StackNode();
+    public Stack s1 = new Stack();
+    public Stack s2 = new Stack();
 
     public N peek(){
         return (N) s1.peek();
@@ -45,6 +45,6 @@ public class StackQueue <N>{
     }
 
     public boolean isEmpty(){
-        return s1.peek() == null;
+        return s1.isEmpty() && s2.isEmpty();
     }
 }

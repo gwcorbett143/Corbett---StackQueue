@@ -38,7 +38,7 @@ public class Stack<N>{
     }
 
     public N peek(){ //returns the top variable
-        N data = null; //data is set to non-existent basically
+        N data = null;
         if(isEmpty()) { //if there is no variable their can't be a top value
             throw new EmptyStackException(); //the stack is empty when this command is executed
         }else{
