@@ -8,14 +8,9 @@ public class Stack<N>{
     //empty constructor
     public Stack(){}
 
-    //returns instance data size
-    public int size(){
-        return size;
-    }
-
     //returns true if stack is empty
     public boolean isEmpty(){
-        return (top == null);
+        return top == null;
     }
 
     //adds a new element to the top of stack
@@ -40,7 +35,7 @@ public class Stack<N>{
     public N peek(){ //returns the top variable
         N data = null;
         if(isEmpty()) { //if there is no variable their can't be a top value
-            throw new EmptyStackException(); //the stack is empty when this command is executed
+            System.out.print(""); //the stack is empty when this command is executed
         }else{
             data = (N) top.getData(); //saves the top value
         }
